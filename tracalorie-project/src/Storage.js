@@ -6,7 +6,6 @@ class Storage {
     } else {
       calorieLimit = +localStorage.getItem("calorieLimit");
     }
-
     return calorieLimit;
   }
 
@@ -21,7 +20,6 @@ class Storage {
     } else {
       totalCalories = +localStorage.getItem("totalCalories");
     }
-
     return totalCalories;
   }
 
@@ -34,10 +32,8 @@ class Storage {
     if (localStorage.getItem("meals") === null) {
       meals = [];
     } else {
-      // because it's stringified
       meals = JSON.parse(localStorage.getItem("meals"));
     }
-
     return meals;
   }
 
@@ -54,6 +50,7 @@ class Storage {
         meals.splice(index, 1);
       }
     });
+
     localStorage.setItem("meals", JSON.stringify(meals));
   }
 
@@ -62,10 +59,8 @@ class Storage {
     if (localStorage.getItem("workouts") === null) {
       workouts = [];
     } else {
-      // because it's stringified
       workouts = JSON.parse(localStorage.getItem("workouts"));
     }
-
     return workouts;
   }
 
@@ -82,6 +77,7 @@ class Storage {
         workouts.splice(index, 1);
       }
     });
+
     localStorage.setItem("workouts", JSON.stringify(workouts));
   }
 
@@ -89,6 +85,9 @@ class Storage {
     localStorage.removeItem("totalCalories");
     localStorage.removeItem("meals");
     localStorage.removeItem("workouts");
+
+    // If you want to clear the limit
+    // localStorage.clear();
   }
 }
 
